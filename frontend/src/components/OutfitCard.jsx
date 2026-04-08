@@ -35,13 +35,13 @@ export default function OutfitCard({ outfit, onFavorite, onPlan }) {
           ))}
         </div>
       ) : (
-        <div className="empty-state">AI zatiaľ nenašla vhodnú kombináciu.</div>
+        <div className="empty-state">The AI hasn’t found a suitable combination yet.</div>
       )}
 
       {(onFavorite || onPlan) && (
         <div className="actions-row">
-          {onFavorite && <button className="secondary-btn" onClick={onFavorite}>Do obľúbených</button>}
-          {onPlan && <button className="primary-btn" onClick={onPlan}>Naplánovať outfit</button>}
+          {onFavorite && <button className="secondary-btn" onClick={onFavorite}>Add to favorites</button>}
+          {onPlan && <button className="primary-btn" onClick={onPlan}>Schedule outfit</button>}
         </div>
       )}
     </div>

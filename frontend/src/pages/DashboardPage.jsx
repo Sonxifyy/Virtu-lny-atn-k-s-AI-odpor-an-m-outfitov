@@ -32,10 +32,10 @@ export default function DashboardPage() {
   }, []);
 
   const quickLinks = [
-    { to: '/wardrobe', icon: '👗', title: 'My wardrobe', text: 'Pridaj nové kúsky a vytvor si svoj módny board.' },
-    { to: '/recommend', icon: '✨', title: 'AI stylist', text: 'Vygeneruj outfit podľa počasia a príležitosti.' },
-    { to: '/outfits', icon: '🪄', title: 'Saved outfits', text: 'Pozri si uložené kombinácie a ich detaily.' },
-    { to: '/calendar', icon: '🗓️', title: 'Planner', text: 'Naplánuj si, čo si oblečieš na konkrétny deň.' }
+    { to: '/wardrobe', icon: '👗', title: 'My wardrobe', text: 'Add new pieces and create your own fashion board.' },
+    { to: '/recommend', icon: '✨', title: 'AI stylist', text: 'Generate an outfit based on the weather and occasion.' },
+    { to: '/outfits', icon: '🪄', title: 'Saved outfits', text: 'View saved combinations and their details.' },
+    { to: '/calendar', icon: '🗓️', title: 'Planner', text: 'Plan what you will wear for a specific day.' }
   ];
 
   return (
@@ -44,27 +44,27 @@ export default function DashboardPage() {
         <div className="page-header">
           <div>
             <div className="panel-eyebrow">Hi {user?.name || 'fashion lover'} ✨</div>
-            <h1 className="page-title">Tvoj elegantný fashion dashboard</h1>
+            <h1 className="page-title">Your elegant fashion dashboard</h1>
             <p className="page-subtitle">
-              Spravuj kúsky, objavuj kombinácie a nechaj AI stylistu navrhnúť outfit, ktorý sa hodí k tvojej nálade aj počasiu.
+              Manage your pieces, discover combinations, and let the AI stylist suggest an outfit that matches your mood and the weather.
             </p>
           </div>
         </div>
       </section>
 
       <section className="grid stats-grid">
-        <div className="card stat-card"><div className="stat-label">Kúsky v šatníku</div><div className="stat-value">{stats.clothes}</div></div>
-        <div className="card stat-card"><div className="stat-label">Uložené outfity</div><div className="stat-value">{stats.outfits}</div></div>
-        <div className="card stat-card"><div className="stat-label">Obľúbené</div><div className="stat-value">{stats.favorites}</div></div>
-        <div className="card stat-card"><div className="stat-label">Plány v kalendári</div><div className="stat-value">{stats.calendar}</div></div>
+        <div className="card stat-card"><div className="stat-label">Items in wardrobe</div><div className="stat-value">{stats.clothes}</div></div>
+        <div className="card stat-card"><div className="stat-label">Saved outfits</div><div className="stat-value">{stats.outfits}</div></div>
+        <div className="card stat-card"><div className="stat-label">Favorites</div><div className="stat-value">{stats.favorites}</div></div>
+        <div className="card stat-card"><div className="stat-label">Calendar plans</div><div className="stat-value">{stats.calendar}</div></div>
       </section>
 
       <section className="card">
         <div className="section-header">
           <div>
             <div className="panel-eyebrow">Quick actions</div>
-            <h2 className="section-title">Choď rovno tam, kde chceš</h2>
-            <p className="section-copy">Najčastejšie kroky pre rýchlu prácu v aplikácii.</p>
+            <h2 className="section-title">Go straight where you want</h2>
+            <p className="section-copy">The most common steps for quick work in the app.</p>
           </div>
         </div>
 

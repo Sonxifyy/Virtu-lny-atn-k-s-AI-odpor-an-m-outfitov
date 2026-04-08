@@ -60,7 +60,7 @@ export default function ClothingForm({ onCreated }) {
 
       setForm(initialState);
       setFile(null);
-      setMessage('Kúsok bol úspešne pridaný do šatníka.');
+      setMessage('The item has been successfully added to the wardrobe.');
       onCreated?.();
     } catch (error) {
       setMessage(error.message);
@@ -74,21 +74,21 @@ export default function ClothingForm({ onCreated }) {
       <div className="section-header">
         <div>
           <div className="panel-eyebrow">➕ Add a new piece</div>
-          <h2 className="section-title">Pridaj oblečenie</h2>
-          <p className="section-copy">Nahraj fotku alebo URL a vytvor si digitálny Pinterest-like šatník.</p>
+          <h2 className="section-title">Add clothing</h2>
+          <p className="section-copy">Upload a photo or URL and create your own digital Pinterest-like wardrobe.</p>
         </div>
       </div>
 
       <div className="input-row">
         <div className="input-group">
-          <label className="label">Názov kúsku</label>
-          <input name="name" placeholder="napr. Pink cardigan" value={form.name} onChange={handleChange} required />
+          <label className="label">Item name</label>
+          <input name="name" placeholder="e.g. Pink cardigan" value={form.name} onChange={handleChange} required />
         </div>
 
         <div className="input-group">
-          <label className="label">Kategória</label>
+          <label className="label">Category</label>
           <select name="category" value={form.category} onChange={handleChange} required>
-            <option value="">Vyber kategóriu</option>
+            <option value="">Select a category</option>
             {categoryOptions.map((option) => (
               <option key={option} value={option}>{option}</option>
             ))}
@@ -98,31 +98,31 @@ export default function ClothingForm({ onCreated }) {
 
       <div className="filters-grid">
         <div className="input-group">
-          <label className="label">Farba</label>
-          <input name="color" placeholder="napr. blush pink" value={form.color} onChange={handleChange} />
+          <label className="label">Color</label>
+          <input name="color" placeholder="e.g. blush pink" value={form.color} onChange={handleChange} />
         </div>
         <div className="input-group">
-          <label className="label">Sezóna</label>
+          <label className="label">Season</label>
           <select name="season" value={form.season} onChange={handleChange}>
-            <option value="">Vyber sezónu</option>
+            <option value="">Select a season</option>
             {seasonOptions.map((option) => (
               <option key={option} value={option}>{option}</option>
             ))}
           </select>
         </div>
         <div className="input-group">
-          <label className="label">Štýl</label>
+          <label className="label">Style</label>
           <select name="style" value={form.style} onChange={handleChange}>
-            <option value="">Vyber štýl</option>
+            <option value="">Select a style</option>
             {styleOptions.map((option) => (
               <option key={option} value={option}>{option}</option>
             ))}
           </select>
         </div>
         <div className="input-group">
-          <label className="label">Formálnosť</label>
+          <label className="label">Formality</label>
           <select name="formality" value={form.formality} onChange={handleChange}>
-            <option value="">Vyber úroveň</option>
+            <option value="">Select a level</option>
             {formalityOptions.map((option) => (
               <option key={option} value={option}>{option}</option>
             ))}
@@ -132,23 +132,23 @@ export default function ClothingForm({ onCreated }) {
 
       <div className="input-row">
         <div className="input-group">
-          <label className="label">Značka</label>
-          <input name="brand" placeholder="napr. Zara" value={form.brand} onChange={handleChange} />
+          <label className="label">Brand</label>
+          <input name="brand" placeholder="e.g. Zara" value={form.brand} onChange={handleChange} />
         </div>
         <div className="input-group">
-          <label className="label">URL obrázka</label>
+          <label className="label">Image URL</label>
           <input name="imageUrl" placeholder="https://..." value={form.imageUrl} onChange={handleChange} />
         </div>
       </div>
 
       <div className="input-group">
-        <label className="label">Nahrať vlastnú fotku</label>
+        <label className="label">Upload your own photo</label>
         <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] || null)} />
       </div>
 
       <div className="actions-row">
         <button className="primary-btn" disabled={loading}>
-          {loading ? 'Ukladám...' : 'Pridať do šatníka'}
+          {loading ? 'Saving...' : 'Add to wardrobe'}
         </button>
         {message && <span className="message">{message}</span>}
       </div>

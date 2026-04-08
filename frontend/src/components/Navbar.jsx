@@ -9,7 +9,7 @@ export default function Navbar() {
     ['/dashboard', 'Dashboard'],
     ['/wardrobe', 'Wardrobe'],
     ['/recommend', 'AI Stylist'],
-    ['/outfits', 'Outfity'],
+    ['/outfits', 'Outfits'],
     ['/favorites', 'Favorites'],
     ['/calendar', 'Calendar']
   ];
@@ -34,7 +34,7 @@ export default function Navbar() {
 
       <div className="navbar-user">
         <span className="user-pill">{user?.name || 'User'}</span>
-        <button className="secondary-btn" onClick={logout}>Odhlásiť sa</button>
+        <button className="secondary-btn" onClick={logout}>Log out</button>
       </div>
     </header>
   );

@@ -39,7 +39,7 @@ export default function WardrobePage() {
           <div>
             <div className="panel-eyebrow">Pinterest style wardrobe</div>
             <h1 className="page-title">My Wardrobe</h1>
-            <p className="page-subtitle">Pridávaj oblečenie, filtruj kúsky a buduj si prehľadný digitálny šatník v jemných ružovo-fialových tónoch.</p>
+            <p className="page-subtitle">Add clothing, filter items, and build a clean digital wardrobe in soft pink and violet tones.</p>
           </div>
         </div>
       </section>
@@ -50,37 +50,37 @@ export default function WardrobePage() {
         <section className="card form-grid">
           <div>
             <div className="panel-eyebrow">Filter & curate</div>
-            <h2 className="section-title">Filtrovanie kúskov</h2>
-            <p className="section-copy">Vyber si len tie kúsky, ktoré práve potrebuješ pre konkrétny vibe.</p>
+            <h2 className="section-title">Filter items</h2>
+            <p className="section-copy">Choose only the pieces you need right now for a specific vibe.</p>
           </div>
 
           <div className="filters-grid">
             <div className="input-group">
-              <label className="label">Kategória</label>
-              <input name="category" placeholder="napr. dress" value={filters.category} onChange={handleFilterChange} />
+              <label className="label">Category</label>
+              <input name="category" placeholder="e.g. dress" value={filters.category} onChange={handleFilterChange} />
             </div>
             <div className="input-group">
-              <label className="label">Farba</label>
+              <label className="label">Color</label>
               <input name="color" placeholder="pink, black, beige..." value={filters.color} onChange={handleFilterChange} />
             </div>
             <div className="input-group">
-              <label className="label">Sezóna</label>
+              <label className="label">Season</label>
               <input name="season" placeholder="summer, winter..." value={filters.season} onChange={handleFilterChange} />
             </div>
             <div className="input-group">
-              <label className="label">Štýl</label>
+              <label className="label">Style</label>
               <input name="style" placeholder="casual, elegant..." value={filters.style} onChange={handleFilterChange} />
             </div>
           </div>
 
           <div className="actions-row">
-            <button className="primary-btn" onClick={() => loadItems()}>Použiť filtre</button>
+            <button className="primary-btn" onClick={() => loadItems()}>Apply filters</button>
             <button className="secondary-btn" onClick={resetFilters}>Reset</button>
           </div>
 
           <div className="highlight-box">
             <strong>{items.length}</strong>
-            <p className="note">Aktuálne zobrazených kúskov v tvojej kolekcii.</p>
+            <p className="note">Currently displayed items in your collection.</p>
           </div>
         </section>
       </div>
@@ -88,8 +88,8 @@ export default function WardrobePage() {
       <section className="card">
         <div className="split-header">
           <div>
-            <h2 className="section-title">Tvoja módna nástenka</h2>
-            <p className="section-copy">Klikateľný prehľad kúskov v Pinterest-like rozložení.</p>
+            <h2 className="section-title">Your fashion board</h2>
+            <p className="section-copy">A clickable overview of items in a Pinterest-like layout.</p>
           </div>
         </div>
         <div className="divider" />

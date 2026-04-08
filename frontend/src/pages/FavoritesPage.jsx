@@ -12,8 +12,8 @@ export default function FavoritesPage() {
     <main className="page">
       <section className="card recommend-hero">
         <div className="panel-eyebrow">Favorite moodboard</div>
-        <h1 className="page-title">Obľúbené outfity</h1>
-        <p className="page-subtitle">Prehľad outfitov, ku ktorým sa chceš rýchlo vrátiť.</p>
+        <h1 className="page-title">Favorite outfits</h1>
+        <p className="page-subtitle">Overview of outfits you want to quickly return to.</p>
       </section>
 
       <section className="card">
@@ -30,7 +30,7 @@ export default function FavoritesPage() {
             ))}
           </div>
         ) : (
-          <div className="empty-state">Zatiaľ nemáš žiadne obľúbené outfity.</div>
+          <div className="empty-state">You don’t have any favorite outfits yet.</div>
         )}
       </section>
     </main>

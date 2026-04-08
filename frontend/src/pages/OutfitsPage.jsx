@@ -13,12 +13,12 @@ export default function OutfitsPage() {
     <main className="page">
       <section className="card recommend-hero">
         <div className="panel-eyebrow">Saved looks</div>
-        <h1 className="page-title">Uložené outfity</h1>
-        <p className="page-subtitle">Všetky kombinácie, ktoré si si už uložila z AI stylistu alebo vytvorila v aplikácii.</p>
+        <h1 className="page-title">Saved outfits</h1>
+        <p className="page-subtitle">All combinations you have saved from the AI stylist or created in the app.</p>
       </section>
 
       <section className="outfit-list">
-        {outfits.length ? outfits.map((outfit) => <OutfitCard key={outfit.id} outfit={outfit} />) : <div className="card empty-state">Zatiaľ nemáš uložené žiadne outfity.</div>}
+        {outfits.length ? outfits.map((outfit) => <OutfitCard key={outfit.id} outfit={outfit} />) : <div className="card empty-state">You don’t have any saved outfits yet.</div>}
       </section>
     </main>
   );

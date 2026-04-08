@@ -13,7 +13,7 @@ function randomHeight(item) {
 
 export default function ClothingList({ items, onDelete }) {
   if (!items.length) {
-    return <div className="card empty-state">Zatiaľ nemáš uložené žiadne kúsky. Pridaj prvý outfit ingredient ✨</div>;
+    return <div className="card empty-state">You don’t have any items yet. Add your first outfit piece ✨</div>;
   }
 
   return (

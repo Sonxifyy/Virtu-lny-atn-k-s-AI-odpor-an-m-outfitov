@@ -37,7 +37,7 @@ export default function LoginPage() {
             <div className="hero-eyebrow">🌷 Your fashion cloud</div>
             <h1 className="hero-title">Dress your ideas before you dress yourself.</h1>
             <p className="hero-text">
-              Virtuálny šatník ti pomôže ukladať kúsky, plánovať outfity a nechať AI stylistu vytvoriť kombinácie podľa počasia, príležitosti a nálady.
+              The virtual wardrobe helps you store pieces, plan outfits, and let an AI stylist create combinations based on weather, occasion, and mood.
             </p>
           </div>
 
@@ -51,8 +51,8 @@ export default function LoginPage() {
         <form className="card auth-card form-grid" onSubmit={handleSubmit}>
           <div>
             <div className="panel-eyebrow">Welcome back</div>
-            <h2 className="auth-title page-title">Prihlásenie</h2>
-            <p className="page-subtitle">Prihlás sa a otvor si svoj digitálny šatník.</p>
+            <h2 className="auth-title page-title">Login</h2>
+            <p className="page-subtitle">Log in and open your digital wardrobe.</p>
           </div>
 
           <div className="input-group">
@@ -61,13 +61,13 @@ export default function LoginPage() {
           </div>
 
           <div className="input-group">
-            <label className="label">Heslo</label>
+            <label className="label">Password</label>
             <input name="password" type="password" placeholder="••••••••" value={form.password} onChange={handleChange} required />
           </div>
 
-          <button className="primary-btn">Prihlásiť sa</button>
+          <button className="primary-btn">Log in</button>
           {message && <p className="message error">{message}</p>}
-          <p className="muted">Nemáš účet? <Link to="/register"><strong>Vytvor si ho tu</strong></Link></p>
+          <p className="muted">Don’t have an account? <Link to="/register"><strong>Create one here</strong></Link></p>
         </form>
       </div>
     </div>

@@ -12,8 +12,8 @@ export default function CalendarPage() {
     <main className="page">
       <section className="card recommend-hero">
         <div className="panel-eyebrow">Outfit planner</div>
-        <h1 className="page-title">Kalendár outfitov</h1>
-        <p className="page-subtitle">Naplánované kombinácie pre jednotlivé dni.</p>
+        <h1 className="page-title">Outfit calendar</h1>
+        <p className="page-subtitle">Planned combinations for each day.</p>
       </section>
 
       <section className="card">
@@ -23,14 +23,14 @@ export default function CalendarPage() {
               <div className="list-row" key={plan.id}>
                 <div>
                   <strong>{plan.outfit_name}</strong>
-                  <div className="muted">Naplánovaný look</div>
+                  <div className="muted">Planned look</div>
                 </div>
                 <div className="chip-date">{new Date(plan.planned_date).toLocaleDateString()}</div>
               </div>
             ))}
           </div>
         ) : (
-          <div className="empty-state">Kalendár je zatiaľ prázdny.</div>
+          <div className="empty-state">The calendar is empty for now.</div>
         )}
       </section>
     </main>

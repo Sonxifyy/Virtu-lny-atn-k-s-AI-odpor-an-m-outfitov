@@ -27,7 +27,7 @@ export default function RecommendPage() {
       });
       setRecommendation(data);
       if (!data.items?.length) {
-        setMessage('Najprv si pridaj pár kúskov do šatníka, aby AI vedela vytvoriť outfit.');
+        setMessage('First, add a few items to your wardrobe so the AI can create an outfit.');
       }
     } catch (error) {
       setMessage(error.message);
@@ -52,7 +52,7 @@ export default function RecommendPage() {
       });
 
       setSavedOutfitId(outfit.id);
-      setMessage(`Outfit "${outfit.name}" bol uložený.`);
+      setMessage(`Outfit "${outfit.name}" has been saved.`);
     } catch (error) {
       setMessage(error.message);
     }
@@ -60,27 +60,27 @@ export default function RecommendPage() {
 
   async function addToFavorites() {
     if (!savedOutfitId) {
-      setMessage('Najprv outfit ulož.');
+      setMessage('Save the outfit first.');
       return;
     }
     await apiRequest(`/favorites/${savedOutfitId}`, { method: 'POST' });
-    setMessage('Outfit bol pridaný do obľúbených.');
+    setMessage('The outfit has been added to favorites.');
   }
 
   async function planLatest() {
     if (!savedOutfitId) {
-      setMessage('Najprv outfit ulož.');
+      setMessage('Save the outfit first.');
       return;
     }
     if (!plannedDate) {
-      setMessage('Vyber dátum.');
+      setMessage('Select a date.');
       return;
     }
     await apiRequest('/calendar', {
       method: 'POST',
       body: JSON.stringify({ outfitId: savedOutfitId, plannedDate })
     });
-    setMessage('Outfit bol naplánovaný do kalendára.');
+    setMessage('The outfit has been added to the calendar.');
   }
 
   return (
@@ -90,29 +90,29 @@ export default function RecommendPage() {
           <div>
             <div className="panel-eyebrow">AI stylist studio</div>
             <h1 className="page-title">AI Screen</h1>
-            <p className="page-subtitle">Vyplň kontext a nechaj AI poskladať outfit z toho, čo už vlastníš.</p>
+            <p className="page-subtitle">Fill in the context and let the AI create an outfit from what you already own.</p>
           </div>
 
           <div className="input-group">
-            <label className="label">Príležitosť</label>
+            <label className="label">Occasion</label>
             <input name="occasion" placeholder="school, work, coffee date..." value={form.occasion} onChange={handleChange} />
           </div>
 
           <div className="filters-grid">
             <div className="input-group">
-              <label className="label">Počasie</label>
+              <label className="label">Weather</label>
               <input name="weatherType" placeholder="rain, cold, hot..." value={form.weatherType} onChange={handleChange} />
             </div>
             <div className="input-group">
-              <label className="label">Štýl</label>
+              <label className="label">Style</label>
               <input name="style" placeholder="romantic, casual, elegant..." value={form.style} onChange={handleChange} />
             </div>
             <div className="input-group">
-              <label className="label">Sezóna</label>
+              <label className="label">Season</label>
               <input name="season" placeholder="spring, summer..." value={form.season} onChange={handleChange} />
             </div>
             <div className="input-group">
-              <label className="label">Dátum do kalendára</label>
+              <label className="label">Calendar date</label>
               <input type="date" value={plannedDate} onChange={(e) => setPlannedDate(e.target.value)} />
             </div>
           </div>
@@ -121,7 +121,7 @@ export default function RecommendPage() {
 
           <div className="highlight-box">
             <strong>How it works</strong>
-            <p className="note">Aplikácia pošle tvoj šatník backendu. Ten použije Gemini API alebo fallback logiku a vráti najvhodnejšiu kombináciu.</p>
+            <p className="note">The app sends your wardrobe to the backend. It then uses the Gemini API or fallback logic and returns the most suitable combination.</p>
           </div>
         </form>
 
@@ -129,8 +129,8 @@ export default function RecommendPage() {
           {!recommendation ? (
             <div className="card recommend-hero">
               <div className="panel-eyebrow">Ready for a look?</div>
-              <h2 className="section-title">Tvoje odporúčanie sa zobrazí tu</h2>
-              <p className="section-copy">Najprv vyplň formulár a klikni na Generate outfit.</p>
+              <h2 className="section-title">Your recommendation will appear here</h2>
+              <p className="section-copy">First fill out the form and click Generate outfit.</p>
             </div>
           ) : (
             <OutfitCard outfit={recommendation} />
@@ -140,15 +140,15 @@ export default function RecommendPage() {
             <div className="card">
               <div className="section-header">
                 <div>
-                  <h2 className="section-title">Čo chceš urobiť ďalej?</h2>
-                  <p className="section-copy">Ulož outfit, pridaj ho do obľúbených alebo si ho naplánuj.</p>
+                  <h2 className="section-title">What do you want to do next?</h2>
+                  <p className="section-copy">Save the outfit, add it to favorites, or schedule it.</p>
                 </div>
               </div>
 
               <div className="actions-row">
-                <button className="primary-btn" onClick={saveRecommendation}>Uložiť outfit</button>
-                <button className="secondary-btn" onClick={addToFavorites}>Do obľúbených</button>
-                <button className="ghost-btn" onClick={planLatest}>Naplánovať</button>
+                <button className="primary-btn" onClick={saveRecommendation}>Save outfit</button>
+                <button className="secondary-btn" onClick={addToFavorites}>Add to favorites</button>
+                <button className="ghost-btn" onClick={planLatest}>Schedule</button>
               </div>
 
               {message && <p className="message success">{message}</p>}
