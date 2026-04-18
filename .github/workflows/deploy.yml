@@ -1,0 +1,19 @@
+name: Auto Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Deploy on EC2
+        run: |
+          cd /home/ubuntu/Virtu-lny-atn-k-s-AI-odpor-an-m-outfitov
+          git fetch origin
+          git reset --hard origin/main
+          docker compose up --build -d
+          docker ps
