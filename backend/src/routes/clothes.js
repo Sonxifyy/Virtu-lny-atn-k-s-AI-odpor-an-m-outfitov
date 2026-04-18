@@ -62,7 +62,7 @@ router.post('/', requireAuth, async (req, res, next) => {
 
     const result = await query(
       `INSERT INTO clothing_items (user_id, name, category, color, season, style, formality, brand, image_url, vision_tags)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10::jsonb)
        RETURNING *`,
       [
         req.user.id,
@@ -74,7 +74,7 @@ router.post('/', requireAuth, async (req, res, next) => {
         formality || null,
         brand || null,
         imageUrl || null,
-        finalVisionTags
+        finalVisionTags ? JSON.stringify(finalVisionTags) : null
       ]
     );
 
