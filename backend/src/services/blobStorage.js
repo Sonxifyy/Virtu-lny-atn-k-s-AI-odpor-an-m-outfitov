@@ -5,6 +5,7 @@ import { BlobServiceClient } from '@azure/storage-blob';
 export async function uploadImage(buffer, originalName) {
   const connectionString = process.env.AZURE_STORAGE_CONNECTION_STRING;
   const containerName = process.env.AZURE_BLOB_CONTAINER;
+  const backendPublicUrl = process.env.BACKEND_PUBLIC_URL;
 
   if (connectionString && containerName) {
     const blobServiceClient = BlobServiceClient.fromConnectionString(connectionString);
@@ -31,5 +32,16 @@ export async function uploadImage(buffer, originalName) {
   const safeName = `${Date.now()}-${originalName.replace(/\s+/g, '-')}`;
   const localPath = path.join(uploadsDir, safeName);
   fs.writeFileSync(localPath, buffer);
-  return `/uploads/${safeName}`;
+
+  const relativeUrl = `/uploads/${safeName}`;
+
+  if (backendPublicUrl) {
+    const cleanBase = backendPublicUrl.endsWith('/')
+      ? backendPublicUrl.slice(0, -1)
+      : backendPublicUrl;
+
+    return `${cleanBase}${relativeUrl}`;
+  }
+
+  return relativeUrl;
 }

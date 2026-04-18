@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS users (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+
 CREATE TABLE IF NOT EXISTS clothing_items (
   id SERIAL PRIMARY KEY,
   user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
@@ -19,6 +20,7 @@ CREATE TABLE IF NOT EXISTS clothing_items (
   formality VARCHAR(50),
   brand VARCHAR(80),
   image_url TEXT,
+  vision_tags JSONB,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

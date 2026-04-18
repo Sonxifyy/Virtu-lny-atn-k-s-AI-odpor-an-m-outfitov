@@ -1,6 +1,7 @@
 import express from 'express';
 import { query } from '../db.js';
 import { requireAuth } from '../middleware/auth.js';
+import { analyzeImageWithAzure } from '../services/azureVisionService.js';
 
 const router = express.Router();
 
@@ -43,15 +44,25 @@ router.get('/', requireAuth, async (req, res, next) => {
 
 router.post('/', requireAuth, async (req, res, next) => {
   try {
-    const { name, category, color, season, style, formality, brand, imageUrl } = req.body;
+    const { name, category, color, season, style, formality, brand, imageUrl, visionTags } = req.body;
 
     if (!name || !category) {
       return res.status(400).json({ message: 'Name and category are required.' });
     }
 
+    let finalVisionTags = visionTags || null;
+
+    if (imageUrl) {
+      try {
+        finalVisionTags = await analyzeImageWithAzure(imageUrl);
+      } catch (error) {
+        console.error('Azure Vision error:', error.message);
+      }
+    }
+
     const result = await query(
-      `INSERT INTO clothing_items (user_id, name, category, color, season, style, formality, brand, image_url)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+      `INSERT INTO clothing_items (user_id, name, category, color, season, style, formality, brand, image_url, vision_tags)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
        RETURNING *`,
       [
         req.user.id,
@@ -62,7 +73,8 @@ router.post('/', requireAuth, async (req, res, next) => {
         style || null,
         formality || null,
         brand || null,
-        imageUrl || null
+        imageUrl || null,
+        finalVisionTags
       ]
     );
 
@@ -120,5 +132,3 @@ router.delete('/:id', requireAuth, async (req, res, next) => {
 });
 
 export default router;
-
-
