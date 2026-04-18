@@ -117,7 +117,7 @@ export default function RecommendPage() {
             </div>
           </div>
 
-          <button className="primary-btn">Generate outfit ✨</button>
+          <button className="primary-btn">Generate outfit </button>
 
           <div className="highlight-box">
             <strong>How it works</strong>
