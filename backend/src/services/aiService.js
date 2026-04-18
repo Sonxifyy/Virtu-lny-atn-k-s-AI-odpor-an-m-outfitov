@@ -71,12 +71,22 @@ function buildRuleBasedRecommendation(items, context) {
   };
 }
 
+
 function buildGeminiPrompt(items, context) {
   return `
 You are a fashion stylist assistant.
 
 Task:
-Recommend one practical outfit from the user's wardrobe.
+Recommend one practical and stylish outfit from the user's wardrobe.
+
+Important rules:
+- Use the wardrobe data carefully.
+- Pay special attention to each item's category, season, style, formality, color, and vision_tags.
+- vision_tags are AI-generated image tags that describe the clothing item visually.
+- Use vision_tags as extra context to better understand the item.
+- Prioritize fashion-relevant tags such as dress type, fabric, shape, details, or clothing type.
+- Ignore overly generic or irrelevant tags such as person, woman, indoor, model, or similar if they do not help outfit selection.
+- Return only items that really fit the requested occasion, weather, style, and season.
 
 Context:
 - Occasion: ${context.occasion || 'not specified'}
@@ -101,7 +111,6 @@ Return ONLY valid JSON in this format:
 }
 `;
 }
-
 function extractJson(text) {
   const codeBlock = text.match(/```json\s*([\s\S]*?)```/i);
   if (codeBlock) {
