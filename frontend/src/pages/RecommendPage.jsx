@@ -89,7 +89,7 @@ export default function RecommendPage() {
         <form className="card form-grid" onSubmit={handleRecommend}>
           <div>
             <div className="panel-eyebrow">AI stylist studio</div>
-            <h1 className="page-title">AI Screen try change</h1>
+            <h1 className="page-title">AI Screen</h1>
             <p className="page-subtitle">Fill in the context and let the AI create an outfit from what you already own.</p>
           </div>
 
@@ -117,7 +117,7 @@ export default function RecommendPage() {
             </div>
           </div>
 
-          <button className="primary-btn">Generate outfit 878 </button>
+          <button className="primary-btn">Generate outfit  </button>
 
           <div className="highlight-box">
             <strong>How it works</strong>
