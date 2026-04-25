@@ -103,8 +103,9 @@ Projekt obsahuje Docker Compose konfiguráciu pre lokálne spustenie všetkých 
 - PostgreSQL databáza.
 
 
-## Ako používať aplikáciu
-# Registrácia a prihlásenie
+
+# Ako používať aplikáciu
+## Registrácia a prihlásenie
 Po otvorení aplikácie sa zobrazí prihlasovacia stránka
 Ak nemáš účet, klikni na Register
 Vyplň:
@@ -113,7 +114,7 @@ heslo
 Klikni na Sign Up
 Následne sa prihlás cez Login
 
-# Dashboard
+## Dashboard
 Po prihlásení sa zobrazí hlavná stránka (Dashboard), odkiaľ sa dostaneš do všetkých častí aplikácie:
 
 Wardrobe (šatník)
@@ -134,7 +135,7 @@ Klikni na Save
 
 Oblečenie sa zobrazí v zozname
 
-# Správa šatníka
+## Správa šatníka
 
 V sekcii Wardrobe môžeš:
 
@@ -144,7 +145,7 @@ upraviť existujúcu položku
 odstrániť položku (ikona delete)
 
 
-# Vytvorenie outfitu
+## Vytvorenie outfitu
 
 Prejdi do sekcie Outfits
 Klikni na Create Outfit
@@ -153,19 +154,19 @@ Ulož outfit
 
 Outfit sa uloží a zobrazí v zozname
 
-# Obľúbené outfity
+## Obľúbené outfity
 
 pri outfite klikni na možnosť Add to Favorites
 obľúbené outfity nájdeš v sekcii Favorites
 
-# Kalendár outfitov
+## Kalendár outfitov
 Prejdi do sekcie Calendar
 Vyber dátum
 Priraď outfit ku konkrétnemu dňu
 
 Môžeš si tak naplánovať oblečenie dopredu
 
-# AI odporúčanie outfitu
+## AI odporúčanie outfitu
 
 Prejdi do sekcie AI Stylist
 Zadaj parametre (napr. príležitosť, štýl, sezóna)
@@ -175,7 +176,7 @@ Aplikácia:
 použije AI (ak je dostupné API)
 alebo fallback algoritmus a vytvorí vhodný outfit
 
-# Nahrávanie obrázkov
+## Nahrávanie obrázkov
 
 Pri pridávaní oblečenia môžeš:
 nahrať obrázok z počítača
